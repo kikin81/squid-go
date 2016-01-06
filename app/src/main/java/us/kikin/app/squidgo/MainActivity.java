@@ -1,20 +1,17 @@
 package us.kikin.app.squidgo;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.GsonConverterFactory;
-import retrofit.Response;
-import retrofit.Retrofit;
-import us.kikin.app.squidgo.models.ScheduleWrapper;
-import us.kikin.app.squidgo.service.SquidService;
+import us.kikin.app.squidgo.fragments.GameModePagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private GameModePagerAdapter pagerAdapter;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +19,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.main_activity);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(SquidService.API_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        pagerAdapter = new GameModePagerAdapter(getSupportFragmentManager());
 
-        SquidService squidService = retrofit.create(SquidService.class);
-        Call<ScheduleWrapper> call = squidService.getSchedule();
-        call.enqueue(new Callback<ScheduleWrapper>() {
-            @Override
-            public void onResponse(Response<ScheduleWrapper> response, Retrofit retrofit) {
-                Log.d(TAG, response.code() + "\nbody:" + response.body());
-            }
+        viewPager = (ViewPager) findViewById(R.id.pager_container);
+        viewPager.setAdapter(pagerAdapter);
 
-            @Override
-            public void onFailure(Throwable t) {
-                Log.d(TAG, t.getLocalizedMessage());
-            }
-        });
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
