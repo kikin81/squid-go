@@ -2,6 +2,9 @@ package us.kikin.app.squidgo.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
+
 /**
  * Created by fvelazquez on 1/5/16.
  */
@@ -9,6 +12,8 @@ public class Schedule {
 
     private long startTime;
     private long endTime;
+    private String startTimeString;
+    private String endTimeString;
     @SerializedName("ranked")
     private RankedMode rankedMode;
     @SerializedName("regular")
@@ -46,5 +51,23 @@ public class Schedule {
 
     public void setRegularMode(RegularMode regularMode) {
         this.regularMode = regularMode;
+    }
+
+    public String getStartTimeString() {
+        if (startTimeString == null) {
+            LocalDateTime dt = new DateTime(startTime).toLocalDateTime();
+            startTimeString = dt.toString("MM/dd h:mm a");
+        }
+
+        return startTimeString;
+    }
+
+    public String getEndTimeString() {
+        if (endTimeString == null) {
+            LocalDateTime dt = new DateTime(endTime).toLocalDateTime();
+            endTimeString = dt.toString("MM/dd h:mm a");
+        }
+
+        return endTimeString;
     }
 }

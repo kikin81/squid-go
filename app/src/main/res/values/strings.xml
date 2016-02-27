@@ -2,4 +2,6 @@
     <string name="app_name">Squid Go</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="welcome_messages">Hello, %1$s! You have %2$d new messages.</string>
+    <string name="battle_mode">Battle Mode: %1$s</string>
 </resources>
