@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
@@ -16,6 +18,7 @@ import retrofit.Response;
 import retrofit.Retrofit;
 import us.kikin.app.squidgo.R;
 import us.kikin.app.squidgo.adapters.ScheduleAdapter;
+import us.kikin.app.squidgo.models.Schedule;
 import us.kikin.app.squidgo.models.ScheduleWrapper;
 import us.kikin.app.squidgo.service.SquidService;
 
@@ -57,7 +60,10 @@ public class ScheduleListFragment extends Fragment {
             @Override
             public void onResponse(Response<ScheduleWrapper> response, Retrofit retrofit) {
                 if (response.body() != null) {
-                    adapter.addItems(response.body().getScheduleList());
+                    List<Schedule> scheduleList = response.body().getScheduleList();
+                    if (scheduleList != null) {
+                        adapter.addItems(scheduleList);
+                    }
                 }
             }
 

@@ -40,24 +40,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
 
     @Override
     public void onBindViewHolder(ScheduleCellHolder holder, int position) {
-        Schedule schedule = scheduleList.get(position);
-        if (schedule != null) {
-            Resources res = context.getResources();
-            String finalString = schedule.getStartTimeString() + " to " + schedule.getEndTimeString();
-            String battleMode = String.format(res.getString(R.string.battle_mode), schedule.getRankedMode().getRuleName());
-            holder.startTime.setText(finalString);
-            holder.battleMode.setText(battleMode);
-            // regular maps
-            for (Stage stage : schedule.getRegularMode().getStages()) {
-                StageView stageView = new StageView(context);
-                stageView.setStage(stage);
-                holder.regularLinear.addView(stageView);
-            }
-
-            for (Stage stage : schedule.getRankedMode().getStages()) {
-                StageView stageView = new StageView(context);
-                stageView.setStage(stage);
-                holder.rankedLinear.addView(stageView);
+        if (position < scheduleList.size()) {
+            Schedule schedule = scheduleList.get(position);
+            if (schedule != null) {
+                Resources res = context.getResources();
+                String finalString = schedule.getStartTimeString() + " to " + schedule.getEndTimeString();
+                String battleMode = String.format(res.getString(R.string.battle_mode), schedule.getRankedMode().getRuleName());
+                holder.startTime.setText(finalString);
+                holder.battleMode.setText(battleMode)
             }
         }
     }
@@ -65,7 +55,10 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     @Override
     public int getItemCount() {
         // TODO: check null
-        return scheduleList.size();
+        int size = 0;
+        if (scheduleList != null) size = scheduleList.size();
+
+        return size;
     }
 
     public void addItems(List<Schedule> items) {

@@ -7,8 +7,7 @@
     <ImageView
             android:id="@+id/map_image"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:src="@drawable/map_underpass" android:scaleType="centerCrop"/>
+            android:layout_height="90dp"/>
     <TextView
             android:id="@+id/map_title"
             android:layout_marginBottom="8dp"
