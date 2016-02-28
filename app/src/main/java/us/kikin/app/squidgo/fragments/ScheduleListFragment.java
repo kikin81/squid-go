@@ -69,7 +69,7 @@ public class ScheduleListFragment extends Fragment {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("ScheduleList", "failure" + t.getLocalizedMessage());
+                Log.d("SPLATGO", "failure" + t.getLocalizedMessage());
             }
         });
     }

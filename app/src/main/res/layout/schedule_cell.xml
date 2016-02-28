@@ -1,58 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardCornerRadius="2dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        card_view:cardCornerRadius="2dp">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/start_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:text="10 AM - 2 PM"
+                android:textSize="24sp" />
 
             <TextView
-                    android:id="@+id/start_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:text="10 AM - 2 PM"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="Regular Battle"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Regular Battle"
+                android:textSize="16sp" />
 
             <LinearLayout
-                    android:id="@+id/regular_linear"
-                    android:layout_width="match_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"/>
+                    android:layout_weight="1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/map_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/sym_def_app_icon" />
+
+                    <TextView
+                        android:id="@+id/reg_map_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/map_image"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/black75"
+                        android:gravity="center_horizontal"
+                        android:padding="6dp"
+                        android:text="Title One"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/map_image_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/sym_def_app_icon" />
+
+                    <TextView
+                        android:id="@+id/reg_map_title_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/map_image_two"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/black75"
+                        android:gravity="center_horizontal"
+                        android:padding="6dp"
+                        android:text="Title Two"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
 
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="Ranked Battle"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ranked Battle"
+                android:textSize="16sp" />
 
             <TextView
-                    android:id="@+id/battle_mode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="Battle Mode"/>
+                android:id="@+id/battle_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Battle Mode"
+                android:textSize="16sp" />
 
             <LinearLayout
-                    android:id="@+id/ranked_linear"
-                    android:layout_width="match_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"/>
+                    android:layout_weight="1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/ranked_map_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/sym_def_app_icon" />
+
+                    <TextView
+                        android:id="@+id/ran_map_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ranked_map_image"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/black75"
+                        android:gravity="center_horizontal"
+                        android:padding="6dp"
+                        android:text="Title One"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/ranked_map_image_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/sym_def_app_icon" />
+
+                    <TextView
+                        android:id="@+id/ran_map_title_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ranked_map_image_two"
+                        android:layout_centerInParent="true"
+                        android:background="@color/black75"
+                        android:gravity="center_horizontal"
+                        android:padding="6dp"
+                        android:text="Title Two"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

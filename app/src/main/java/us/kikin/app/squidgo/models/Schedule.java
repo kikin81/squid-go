@@ -19,7 +19,8 @@ public class Schedule {
     @SerializedName("regular")
     private RegularMode regularMode;
 
-    public Schedule() {}
+    public Schedule() {
+    }
 
     public long getStartTime() {
         return startTime;
@@ -55,8 +56,7 @@ public class Schedule {
 
     public String getStartTimeString() {
         if (startTimeString == null) {
-            LocalDateTime dt = new DateTime(startTime).toLocalDateTime();
-            startTimeString = dt.toString("MM/dd h:mm a");
+            startTimeString = prettyDate(startTime);
         }
 
         return startTimeString;
@@ -64,10 +64,17 @@ public class Schedule {
 
     public String getEndTimeString() {
         if (endTimeString == null) {
-            LocalDateTime dt = new DateTime(endTime).toLocalDateTime();
-            endTimeString = dt.toString("MM/dd h:mm a");
+            endTimeString = prettyDate(endTime);
         }
 
         return endTimeString;
+    }
+
+    public String prettyDate(long time) {
+        String prettyDate;
+        LocalDateTime dt = new DateTime(time).toLocalDateTime();
+        prettyDate = dt.toString("h:mm a");
+
+        return prettyDate;
     }
 }
